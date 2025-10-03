@@ -1,5 +1,5 @@
 #!/bin/bash
-set -e
+#set -e
 
 REPO_URI=177701659471.dkr.ecr.us-east-1.amazonaws.com/mdn-docker-repo
 
