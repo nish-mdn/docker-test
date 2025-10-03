@@ -4,8 +4,12 @@ phases:
   pre_build:
     commands:
       - echo Logging in to Amazon ECR...
+      #- aws ecr get-login-password --region $AWS_DEFAULT_REGION \
+      #  | docker login --username AWS --password-stdin 177701659471.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com
       - aws ecr get-login-password --region $AWS_DEFAULT_REGION \
-        | docker login --username AWS --password-stdin 177701659471.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com
+        | docker login \
+        --username AWS \
+        --password-stdin 177701659471.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com  
       - REPOSITORY_URI=177701659471.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/myapp
       - IMAGE_TAG=$(echo $CODEBUILD_RESOLVED_SOURCE_VERSION | cut -c 1-7)
       # Write image URI to file for next stage
