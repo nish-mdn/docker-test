@@ -1,0 +1,10 @@
+<h2>Posts</h2>
+<p><a href="<%= new_post_path %>">Create New Post</a></p>
+
+<% @posts.each do |post| %>
+  <div style="border:1px solid #ddd; padding:8px; margin-bottom:8px;">
+    <h3><a href="<%= post_path(post) %>"><%= post.title %></a></h3>
+    <p><%= truncate(post.body, length: 200) %></p>
+    <small>Posted at <%= post.created_at.strftime("%Y-%m-%d %H:%M") %></small>
+  </div>
+<% end %>
