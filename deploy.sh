@@ -14,4 +14,4 @@ docker pull $REPO_URI:latest
 
 echo "Starting new container..."
 #docker run -d --name myapp -p 80:3000 $REPO_URI:latest
-docker run -it --rm --name rails-app -p 3000:3000 --link db:db -e DB_HOST=db mdn-docker-repo
+docker run -it --rm --name rails-app -p 3000:3000 --link db:db -e DB_HOST=db $REPO_URI:latest

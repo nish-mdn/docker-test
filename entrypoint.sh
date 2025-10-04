@@ -18,6 +18,6 @@ export BUNDLE_GEMFILE=/myapp/Gemfile
 # done
 
 echo "Running migrations (if needed) and seeding..."
-bin/rails db:migrate 2>/dev/null || bin/rails db:setup
+bundle exec rails db:migrate 2>/dev/null || bundle exec rails db:setup
 
 exec "$@"
