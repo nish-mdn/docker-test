@@ -16,13 +16,13 @@ export BUNDLE_GEMFILE=/myapp/Gemfile
 #   fi
 #   sleep 2
 # done
-echo "ruby version"
-ruby -v
-echo "rails version"
-rails -v
-echo "bundler version"
-bundle --version
-echo "Running migrations (if needed) and seeding..."
-bundle exec rails db:migrate 2>/dev/null || bundle exec rails db:setup
+# echo "ruby version"
+# ruby -v
+# echo "rails version"
+# rails -v
+# echo "bundler version"
+# bundle --version
+# echo "Running migrations (if needed) and seeding..."
+# bundle exec rails db:migrate 2>/dev/null || bundle exec rails db:setup
 
 exec "$@"
