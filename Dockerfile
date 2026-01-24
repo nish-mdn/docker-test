@@ -1,4 +1,4 @@
-FROM ruby:3.2
+FROM ruby:3.5.0-preview1-slim-trixie
 
 # Install dependencies
 RUN apt-get update -qq && apt-get install -y \
