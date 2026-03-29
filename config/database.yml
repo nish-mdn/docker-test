@@ -3,8 +3,8 @@ default: &default
   encoding: utf8mb4
   pool: 25
   username: root
-  password: rootpassword
-  host: db
+  password: root_password
+  host: rails-db-service
 
 development:
   <<: *default
