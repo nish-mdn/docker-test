@@ -1,0 +1,24 @@
+<h2>Sign Up</h2>
+
+<%= form_tag(signup_path, method: :post) do %>
+  <div style="margin-bottom: 12px;">
+    <%= label_tag :email, "Email" %><br>
+    <%= email_field_tag :email, params[:email], required: true, style: "width: 300px; padding: 6px;" %>
+  </div>
+
+  <div style="margin-bottom: 12px;">
+    <%= label_tag :password, "Password (minimum 8 characters)" %><br>
+    <%= password_field_tag :password, nil, required: true, minlength: 8, style: "width: 300px; padding: 6px;" %>
+  </div>
+
+  <div style="margin-bottom: 12px;">
+    <%= label_tag :password_confirmation, "Confirm Password" %><br>
+    <%= password_field_tag :password_confirmation, nil, required: true, minlength: 8, style: "width: 300px; padding: 6px;" %>
+  </div>
+
+  <div style="margin-bottom: 12px;">
+    <%= submit_tag "Sign Up", style: "padding: 8px 20px; cursor: pointer;" %>
+  </div>
+<% end %>
+
+<p>Already have an account? <%= link_to "Sign In", login_path %></p>
