@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   post   "login",  to: "sessions#create"
   get    "signup", to: "sessions#new_signup",  as: :signup
   post   "signup", to: "sessions#signup"
-  delete "logout", to: "sessions#destroy",     as: :logout
+  match  "logout", to: "sessions#destroy",     as: :logout, via: [:get, :delete]
 
   resources :posts do
     resources :comments, only: [:create, :destroy]
