@@ -22,6 +22,9 @@ RUN bundle install --jobs 4 --retry 3
 # Copy app code
 COPY . .
 
+# Precompile assets
+RUN bundle exec rails assets:precompile RAILS_ENV=production SECRET_KEY_BASE=placeholder 2>/dev/null || true
+
 # Entrypoint
 COPY entrypoint.sh /usr/bin/
 RUN chmod +x /usr/bin/entrypoint.sh

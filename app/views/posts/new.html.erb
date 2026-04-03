@@ -1,3 +1,9 @@
-<h2>New Post</h2>
-<%= render "form", post: @post %>
-<p><a href="<%= posts_path %>">Back</a></p>
+<div class="card">
+  <div class="page-header">
+    <h2>New Post</h2>
+  </div>
+  <%= render "form", post: @post %>
+  <div class="mt-2">
+    <a href="<%= posts_path %>" class="btn btn-secondary">Back</a>
+  </div>
+</div>

@@ -1,27 +1,31 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
-    <title>demo on oct 6th</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rails Blog</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+    <%= stylesheet_link_tag "application", media: "all" %>
   </head>
   <body>
-    <div class="container">
-      <div style="display: flex; justify-content: space-between; align-items: center;">
+    <nav class="navbar">
+      <div class="navbar-inner">
         <h1><a href="<%= root_path %>">Rails Blog</a></h1>
         <% if logged_in? %>
-          <div>
+          <div class="user-info">
             Signed in as <strong><%= current_user_email %></strong>
             | <%= link_to "Sign Out", logout_path, data: { turbo_method: :delete } %>
           </div>
         <% end %>
       </div>
+    </nav>
+    <div class="container">
       <% if notice %>
-        <p style="color: green;"><%= notice %></p>
+        <div class="flash-notice"><%= notice %></div>
       <% end %>
       <% if alert %>
-        <p style="color: red;"><%= alert %></p>
+        <div class="flash-alert"><%= alert %></div>
       <% end %>
       <%= yield %>
     </div>
