@@ -28,6 +28,9 @@ jobs:
         with:
           app-id: ${{ secrets.MANIFEST_APP_ID }}
           private_key: ${{ secrets.MANIFEST_APP_PRIVATE_KEY }}
+          # EXPLICITLY set the target repo details here
+          owner: nish-mdn
+          repositories: k8s-deploy-play
 
       - name: Checkout Manifest Repo
         uses: actions/checkout@v4
