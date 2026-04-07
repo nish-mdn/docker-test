@@ -7,7 +7,10 @@ class AuthServiceClient
     def sign_in(email, password)
       response = HTTParty.post(
         "#{base_url}/users/sign_in",
-        headers: { "Content-Type" => "application/json" },
+        headers: { 
+          "Content-Type" => "application/json",
+          "X-Requested-With" => "XMLHttpRequest"
+        },
         body: { user: { email: email, password: password } }.to_json,
         timeout: 10
       )
@@ -17,7 +20,10 @@ class AuthServiceClient
     def sign_up(email, password, password_confirmation)
       response = HTTParty.post(
         "#{base_url}/users",
-        headers: { "Content-Type" => "application/json" },
+        headers: { 
+          "Content-Type" => "application/json",
+          "X-Requested-With" => "XMLHttpRequest"
+        },
         body: { user: { email: email, password: password, password_confirmation: password_confirmation } }.to_json,
         timeout: 10
       )
@@ -29,7 +35,8 @@ class AuthServiceClient
         "#{base_url}/users/sign_out",
         headers: {
           "Content-Type" => "application/json",
-          "Authorization" => "Bearer #{token}"
+          "Authorization" => "Bearer #{token}",
+          "X-Requested-With" => "XMLHttpRequest"
         },
         timeout: 10
       )
@@ -39,7 +46,10 @@ class AuthServiceClient
     def fetch_public_key
       response = HTTParty.get(
         "#{base_url}/api/v1/public_keys/show",
-        headers: { "Content-Type" => "application/json" },
+        headers: { 
+          "Content-Type" => "application/json",
+          "X-Requested-With" => "XMLHttpRequest"
+        },
         timeout: 10
       )
       parsed = parse_response(response)
